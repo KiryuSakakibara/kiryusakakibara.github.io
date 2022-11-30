@@ -537,6 +537,10 @@ button:focus {
   font-weight: 500 !important;
   padding-top: 10px !important;
 }
+.project-image {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
 
 /* --------- */
 /* About */

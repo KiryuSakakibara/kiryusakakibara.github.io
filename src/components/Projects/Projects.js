@@ -8,6 +8,9 @@ import editor from "../../Assets/Projects/codeEditor.png";
 import chatify from "../../Assets/Projects/chatify.png";
 import suicide from "../../Assets/Projects/suicide.png";
 import bitsOfCode from "../../Assets/Projects/blog.png";
+import yetiSetGo from "../../Assets/Projects/YetiSetGo/logo1.jpg";
+import honeyHeist from "../../Assets/Projects/HoneyHeist/startScreen.png";
+import shaggyFight from "../../Assets/Projects/ShaggyGame/shaggyFight.png";
 
 function Projects() {
   return (
@@ -22,6 +25,47 @@ function Projects() {
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           <Col md={4} className="project-card">
+            <ProjectCard 
+              imgPath={yetiSetGo}
+              isBlog={false}
+              title="Yeti Set Go!"
+              description="A multiplayer platforming game for mobile devices developed using
+                the Cornell University Game Library (CUGL) engine. 1 person plays as a Yeti that
+                is defending their mountain, while up to 4 other players try to climb the mountain 
+                and destroy the Crystal at the top."
+              ghLink="#"
+              githubAvailable={false}
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard 
+              imgPath={honeyHeist}
+              isBlog={false}
+              title="Honey Heist"
+              description="A puzzle platforming game for desktop computers developed using the 
+                LibGDX game engine. Play as an ant trying to loot the honey hidden within the
+                center of a beehive. Navigate the complex maze by rotating the hive and letting
+                gravity do all the work."
+              ghLink="https://github.com/KiryuSakakibara/HoneyHeist"
+              githubAvailable={true}
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard 
+              imgPath={shaggyFight}
+              isBlog={false}
+              title="Shaggy Game"
+              description="A bullet-hell game developed for PC in Unity. Inspired by the 
+                'Ultra Instinct Shaggy' meme, dodge and fight against Shaggy from Scooby Doo as he
+                shoots a barrage of deadly bullets in space."
+              ghLink="#"
+              githubAvailable={false}
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
             <ProjectCard
               imgPath={chatify}
               isBlog={false}
@@ -29,6 +73,7 @@ function Projects() {
               description="Personal Chat Room or Workspace to share resources and hangout with friends build with react.js, Material-UI, and Firebase. Have features which allows user for realtime messaging, image sharing as well as supports reactions on messages."
               ghLink="https://github.com/soumyajit4419/Chatify"
               demoLink="https://chatify-49.web.app/"
+              githubAvailable={true}
             />
           </Col>
 
