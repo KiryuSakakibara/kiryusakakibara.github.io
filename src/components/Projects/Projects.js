@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
@@ -11,10 +11,43 @@ import bitsOfCode from "../../Assets/Projects/blog.png";
 import yetiSetGo from "../../Assets/Projects/YetiSetGo/logo1.jpg";
 import honeyHeist from "../../Assets/Projects/HoneyHeist/startScreen.png";
 import shaggyFight from "../../Assets/Projects/ShaggyGame/shaggyFight.png";
+import FsLightbox from "fslightbox-react";
+import { BsImages } from "react-icons/bs";
 
 function Projects() {
+  const [toggler, setToggler] = useState(true);
+  const [lightboxFiles, setLightboxFiles] = useState([]);
+
+  /*
+  useEffect(() => {
+    setLightboxTypes([
+      ...new Array(lightboxImages.length).fill("image"),
+      ...new Array(lightboxVideos.length).fill("video")
+    ])
+  }, [lightboxImages, lightboxVideos])
+  */
+
+  function importAll(r) {
+    let images = [];
+    r.keys().forEach((item, index) => {
+      images.push(r(item));
+    });
+    return images
+  }
+
+  function updateGallery(files) {
+    setLightboxFiles(files);
+    setToggler(!toggler);
+  }
+
+  let yetiSetGoFiles = importAll(require.context('./../../Assets/Projects/YetiSetGo', false, /\.(png|jpe?g|mp4)$/));
+
   return (
     <Container fluid className="project-section">
+      <FsLightbox
+        toggler={toggler}
+        sources={lightboxFiles}
+      />
       <Particle />
       <Container>
         <h1 className="project-heading">
@@ -35,6 +68,7 @@ function Projects() {
                 and destroy the Crystal at the top."
               ghLink="#"
               githubAvailable={false}
+              galleryClick={() => updateGallery(yetiSetGoFiles)}
             />
           </Col>
 
