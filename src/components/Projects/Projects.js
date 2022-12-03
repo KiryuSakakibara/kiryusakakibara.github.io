@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
@@ -10,43 +10,38 @@ import suicide from "../../Assets/Projects/suicide.png";
 import bitsOfCode from "../../Assets/Projects/blog.png";
 import yetiSetGo from "../../Assets/Projects/YetiSetGo/logo1.jpg";
 import honeyHeist from "../../Assets/Projects/HoneyHeist/startScreen.png";
-import shaggyFight from "../../Assets/Projects/ShaggyGame/shaggyFight.png";
 import FsLightbox from "fslightbox-react";
 import { BsImages } from "react-icons/bs";
+import Galleries from "../../Assets/Projects/Galleries";
 
 function Projects() {
-  const [toggler, setToggler] = useState(true);
-  const [lightboxFiles, setLightboxFiles] = useState([]);
-
-  /*
+  const [toggler, setToggler] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState("YetiSetGo");
+  const firstRender = useRef(true);
+  
   useEffect(() => {
-    setLightboxTypes([
-      ...new Array(lightboxImages.length).fill("image"),
-      ...new Array(lightboxVideos.length).fill("video")
-    ])
-  }, [lightboxImages, lightboxVideos])
-  */
-
-  function importAll(r) {
-    let images = [];
-    r.keys().forEach((item, index) => {
-      images.push(r(item));
-    });
-    return images
-  }
-
-  function updateGallery(files) {
-    setLightboxFiles(files);
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
     setToggler(!toggler);
-  }
+  }, [lightboxIndex])
 
-  let yetiSetGoFiles = importAll(require.context('./../../Assets/Projects/YetiSetGo', false, /\.(png|jpe?g|mp4)$/));
+
+  function updateGallery(index) {
+    let temp = lightboxIndex;
+    setLightboxIndex(index);
+    if (temp == index) {
+      setToggler(!toggler);
+    }
+  }
 
   return (
     <Container fluid className="project-section">
       <FsLightbox
         toggler={toggler}
-        sources={lightboxFiles}
+        sources={Galleries[lightboxIndex]}
+        key={lightboxIndex}
       />
       <Particle />
       <Container>
@@ -68,7 +63,7 @@ function Projects() {
                 and destroy the Crystal at the top."
               ghLink="#"
               githubAvailable={false}
-              galleryClick={() => updateGallery(yetiSetGoFiles)}
+              galleryClick={() => updateGallery("YetiSetGo")}
             />
           </Col>
 
@@ -83,19 +78,7 @@ function Projects() {
                 gravity do all the work."
               ghLink="https://github.com/KiryuSakakibara/HoneyHeist"
               githubAvailable={true}
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard 
-              imgPath={shaggyFight}
-              isBlog={false}
-              title="Shaggy Game"
-              description="A bullet-hell game developed for PC in Unity. Inspired by the 
-                'Ultra Instinct Shaggy' meme, dodge and fight against Shaggy from Scooby Doo as he
-                shoots a barrage of deadly bullets in space."
-              ghLink="#"
-              githubAvailable={false}
+              galleryClick={() => updateGallery("HoneyHeist")}
             />
           </Col>
 
