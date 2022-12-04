@@ -96,6 +96,21 @@ function Projects() {
             />
           </Col>
 
+          <Col md={4} className="project-card">
+            <ProjectCard 
+              imgPath={Galleries["SpoilerAlert"][0]}
+              isBlog={false}
+              title="Spoiler Alert!"
+              description="A conceptual refrigerator software that reduces food waste by using
+              neural networks to identify what foods are about to expire and letting the user know
+              to use them soon. Made during a hackathon at Cornell University with React for the 
+              interface and PyTorch for the AI."
+              ghLink="https://github.com/KiryuSakakibara/BRH2022"
+              githubAvailable={true}
+              devpostLink="https://devpost.com/software/spoiler-alert-duvxz4"
+            />
+          </Col>
+
           
         </Row>
       </Container>

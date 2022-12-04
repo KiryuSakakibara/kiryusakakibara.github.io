@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub, BsImages } from "react-icons/bs";
+import {SiDevpost} from "react-icons/si"
 
 function ProjectCards(props) {
   return (
@@ -20,17 +21,31 @@ function ProjectCards(props) {
         {"\n"}
         {"\n"}
 
-        <Button
-          variant="primary"
-          disabled={!props.galleryClick}
-          style={{ marginLeft: "10px" }}
-          onClick={props.galleryClick}
-        >
-          <BsImages /> &nbsp;
-          Gallery
-        </Button>
+        {props.galleryClick && (
+          <Button
+            variant="primary"
+            style={{ marginLeft: "10px" }}
+            onClick={props.galleryClick}
+          >
+            <BsImages /> &nbsp;
+            Gallery
+          </Button>
+        )}
+
         {"\n"}
         {"\n"}
+
+        {props.devpostLink && (
+          <Button
+            variant="primary"
+            href={props.devpostLink}
+            target="_blank"
+            style={{marginLeft: "10px"}}
+          >
+            <SiDevpost/> &nbsp;
+            Devpost
+          </Button>
+        )}
 
         {/* If the component contains Demo link and if it's not a Blog then, it will render the below component  */}
 
