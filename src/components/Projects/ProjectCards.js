@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub, BsImages } from "react-icons/bs";
 import {SiDevpost} from "react-icons/si"
+import {IoGameController} from "react-icons/io5"
 
 function ProjectCards(props) {
   return (
@@ -14,10 +15,19 @@ function ProjectCards(props) {
         <Card.Text style={{ textAlign: "justify" }}>
           {props.description}
         </Card.Text>
-        <Button variant="primary" href={props.ghLink} target="_blank" disabled={!props.githubAvailable}>
-          <BsGithub /> &nbsp;
-          GitHub
-        </Button>
+        {props.ghLink && (
+          <Button
+            variant="primary"
+            href={props.ghLink}
+            target="_blank"
+            disabled={!props.githubAvailable}
+          >
+            <BsGithub/> &nbsp;
+            GitHub
+          </Button>
+        )}
+        
+        
         {"\n"}
         {"\n"}
 
@@ -58,6 +68,17 @@ function ProjectCards(props) {
           >
             <CgWebsite /> &nbsp;
             {"Demo"}
+          </Button>
+        )}
+
+        {props.gameLink && (
+          <Button
+            variant="primary"
+            href={props.gameLink}
+            target="blank"
+            style={{marginLeft: "10px" }}
+          >
+            <IoGameController /> &nbsp;
           </Button>
         )}
       </Card.Body>

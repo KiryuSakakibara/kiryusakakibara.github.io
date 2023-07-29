@@ -24,14 +24,13 @@ function Projects() {
       firstRender.current = false;
       return;
     }
-    setToggler(!toggler);
-  }, [lightboxIndex])
+  }, [lightboxIndex, toggler])
 
 
   function updateGallery(index) {
     let temp = lightboxIndex;
     setLightboxIndex(index);
-    if (temp == index) {
+    if (temp === index) {
       setToggler(!toggler);
     }
   }
@@ -52,6 +51,15 @@ function Projects() {
           Here are a few projects I've worked on recently.
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={Galleries["PhaserGame"][0]}
+              title="Phaser Game"
+              description="A prototype game I am developing by myself using the Phaser game engine 
+              with typescript. Available on this website to make playtesting easier."
+            />
+          </Col>
+
           <Col md={4} className="project-card">
             <ProjectCard 
               imgPath={yetiSetGo}
@@ -90,8 +98,8 @@ function Projects() {
               description="A bullet-hell game developed for PC in Unity. Inspired by the 
                 'Ultra Instinct Shaggy' meme, dodge and fight against Shaggy from Scooby Doo as he
                 shoots a barrage of deadly bullets in space. Made for fun, not meant to be published."
-              ghLink="#"
-              githubAvailable={false}
+              ghLink="https://github.com/KiryuSakakibara/Shaggy-Game"
+              githubAvailable={true}
               galleryClick={() => updateGallery("ShaggyGame")}
             />
           </Col>
