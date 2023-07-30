@@ -16,6 +16,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import PhaserGame from "./components/PhaserGame/PhaserGame";
 
 function App() {
   const [load, upadateLoad] = useState(true);
@@ -31,19 +32,22 @@ function App() {
   return (
     <Router>
       <Preloader load={load} />
-      <div className="App" id={load ? "no-scroll" : "scroll"}>
+      <div className="App" id={load ? "no-scroll" : "scroll"} style={{minHeight:"100vh", position:"relative"}}>
         <Navbar />
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/project" element={<Projects />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/PhaserGame" element={<PhaserGame />} />
           {/*
           <Route path="/about" element={<About />} />
           */}
           <Route path="/resume" element={<Resume />} />
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
-        <Footer />
+        <div style={{position: "absolute", width: "100%", bottom: 0}}>
+          <Footer />
+        </div>
       </div>
     </Router>
   );

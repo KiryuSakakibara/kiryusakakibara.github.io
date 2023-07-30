@@ -24,7 +24,8 @@ function Projects() {
       firstRender.current = false;
       return;
     }
-  }, [lightboxIndex, toggler])
+    setToggler(!toggler)
+  }, [lightboxIndex])
 
 
   function updateGallery(index) {
@@ -57,6 +58,8 @@ function Projects() {
               title="Phaser Game"
               description="A prototype game I am developing by myself using the Phaser game engine 
               with typescript. Available on this website to make playtesting easier."
+              galleryClick={() => updateGallery("PhaserGame")}
+              gameLink="/PhaserGame"
             />
           </Col>
 

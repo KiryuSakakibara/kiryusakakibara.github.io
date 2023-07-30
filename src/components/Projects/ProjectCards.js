@@ -5,6 +5,8 @@ import { CgWebsite } from "react-icons/cg";
 import { BsGithub, BsImages } from "react-icons/bs";
 import {SiDevpost} from "react-icons/si"
 import {IoGameController} from "react-icons/io5"
+import { Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function ProjectCards(props) {
   return (
@@ -30,6 +32,18 @@ function ProjectCards(props) {
         
         {"\n"}
         {"\n"}
+
+        {props.gameLink && (
+            <Button
+              variant="primary"
+              as={Link}
+              to="/PhaserGame"
+              style={{marginLeft: "10px"}}
+            >
+              <IoGameController /> &nbsp;
+              Play
+            </Button>
+        )}
 
         {props.galleryClick && (
           <Button
@@ -70,17 +84,7 @@ function ProjectCards(props) {
             {"Demo"}
           </Button>
         )}
-
-        {props.gameLink && (
-          <Button
-            variant="primary"
-            href={props.gameLink}
-            target="blank"
-            style={{marginLeft: "10px" }}
-          >
-            <IoGameController /> &nbsp;
-          </Button>
-        )}
+        
       </Card.Body>
     </Card>
   );
