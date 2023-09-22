@@ -57,9 +57,10 @@ function Projects() {
               imgPath={Galleries["PhaserGame"][0]}
               title="Phaser Game"
               description="A prototype game I am developing by myself using the Phaser game engine 
-              with typescript. Available on this website to make playtesting easier."
+              with typescript. The game engine was chosen the game can be played easily through a
+              browser without downloading anything. Available on Itch.io."
               galleryClick={() => updateGallery("PhaserGame")}
-              gameLink="/PhaserGame"
+              gameLink="https://kirucchi.itch.io/kirucchigame"
             />
           </Col>
 

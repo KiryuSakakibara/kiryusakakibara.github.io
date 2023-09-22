@@ -36,8 +36,10 @@ function ProjectCards(props) {
         {props.gameLink && (
             <Button
               variant="primary"
-              as={Link}
-              to="/PhaserGame"
+              //as={Link}
+              //to="/PhaserGame"
+              href={props.gameLink}
+              target="_blank"
               style={{marginLeft: "10px"}}
             >
               <IoGameController /> &nbsp;
