@@ -35,7 +35,7 @@ function Home2() {
                   <i><b className="purple"> Game Design, Computer Graphics, and AI</b></i>
                 </li>
                 <li>Studied game design concepts, namely
-                  <i><b className="purple"> Character Design and Digital Music</b></i>
+                  <i><b className="purple"> Level Design, Character Design, and Digital Music</b></i>
                 </li>
               </ul>
               <br />

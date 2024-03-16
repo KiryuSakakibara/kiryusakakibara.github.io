@@ -55,12 +55,13 @@ function Projects() {
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={Galleries["PhaserGame"][0]}
-              title="Phaser Game"
-              description="A prototype game I am developing by myself using the Phaser game engine 
-              with typescript. The game engine was chosen the game can be played easily through a
-              browser without downloading anything. Available on Itch.io."
+              title="Time Step Delta"
+              description="A rogue-like shooter game that I am developing by myself 
+              using the Phaser game engine with typescript. The main focus is accessibility,
+              so the game is playable in a browser, and features time control elements to 
+              let the player adjust difficulty in a more intuitive way."
               galleryClick={() => updateGallery("PhaserGame")}
-              gameLink="https://kirucchi.itch.io/kirucchigame"
+              gameLink="https://kiryusakakibara.itch.io/time-step-delta"
             />
           </Col>
 
