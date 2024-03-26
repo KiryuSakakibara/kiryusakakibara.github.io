@@ -89,7 +89,7 @@ function Projects() {
                 LibGDX game engine. Play as an ant trying to loot the honey hidden within the
                 center of a beehive. Navigate the complex maze by rotating the hive and letting
                 gravity do all the work."
-              ghLink="https://github.com/KiryuSakakibara/HoneyHeist"
+              ghLink="https://github.com/KiryuSakakibara/HoneyHeist/releases"
               githubAvailable={true}
               galleryClick={() => updateGallery("HoneyHeist")}
             />
